@@ -16,35 +16,32 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) =>{
     }
     console.log('Connected to MongoDB server');
 
-    // db.collection('Todos')
-    //     .deleteMany({text: 'Eat Lunch'})
-    //     .then((result) => {
-    //         console.log(result);
-    //     });
+    // db.collection('Todos').findOneAndUpdate({
+    //     _id: new ObjectID("5956b56d44beab30c14e59c1")
+    // }, {
+    //     $set: {
+    //         completed: true
+    //     }
+    // }, {
+    //     returnOriginal: false
+    // }).then((result) => {
+    //     console.log(result);
+    // });
 
-    // db.collection('Todos')
-    //     .deleteOne({text: 'Eat Lunch'})
-    //     .then((result) => {
-    //         console.log(result);
-    //     });
-
-    // db.collection('Todos')
-    //     .findOneAndDelete({completed: false})
-    //     .then((result) => {
-    //         console.log(result);
-    //     });
-
-    // db.collection('Users')
-    //     .deleteMany({name: 'Mike'})
-    //     .then((result) => {
-    //         console.log(result);
-    //     });
-
-    db.collection('Users')
-        .findOneAndDelete({_id:new ObjectID('5956a8a61aac6d1160dbbf8c')})
-        .then((result) => {
-            console.log(result);
-        });
+    db.collection('Users').findOneAndUpdate({
+        _id: new ObjectID("5956a9e12c494e0158dc7d30")
+    }, {
+        $set: {
+            name: 'Yozer'
+        },
+        $inc: {
+            age: 1
+        }
+    }, {
+        returnOriginal: false
+    }).then((result) => {
+        console.log(result);
+    });
 
     //db.close();
 });
